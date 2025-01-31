@@ -1,0 +1,18 @@
+sequenceDiagram
+  participant Browser as Browser
+  participant Server as Server
+
+  Browser ->> Server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
+  Note right of Browser: Server reads request, creates a Note and adds to Note List
+  Server ->> Browser: HTTP status code 302 URL redirect
+  Browser ->> Server: GET https://studies.cs.helsinki.fi/exampleapp/notes
+  Server ->> Browser: HTML document
+  Browser ->> Server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+  Server ->> Browser: CSS file
+  Browser ->> Server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
+  Server ->> Browser: JScript file
+  Note right of Browser: Browser executes code to fetch JSON from server
+  Browser ->> Server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+  Server ->> Browser: JSON file
+  Note right of Browser: Browser executes call back function to populate notes
+

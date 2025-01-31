@@ -1,0 +1,8 @@
+sequenceDiagram
+  participant Browser as Browser
+  participant Server as Server
+  Note right of Browser: Browser creates Note, adds it to Note List and rerenders
+  Note right of Browser: Browser sends new note to server
+  Browser ->> Server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+  Server ->> Browser: HTTP status code 201 created
+
